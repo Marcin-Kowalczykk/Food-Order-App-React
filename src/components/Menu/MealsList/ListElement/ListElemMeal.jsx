@@ -20,12 +20,18 @@ const Li = styled.li`
   }
 `;
 
+const Description = styled.div`
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+  font-style: italic;
+`;
+
 const ListElemMeal = ({ title, desc, price }) => {
   return (
     <Li>
       <BoxElemWrapper>
         <BoxBoldText>{title}</BoxBoldText>
-        <div>{desc}</div>
+        <Description>{desc}</Description>
         <BoxBoldText>{price}</BoxBoldText>
       </BoxElemWrapper>
       <MealForm />
