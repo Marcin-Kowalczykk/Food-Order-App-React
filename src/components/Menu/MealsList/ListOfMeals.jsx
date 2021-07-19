@@ -2,8 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import ListElemMeal from './ListElemMeal';
-import { MealsData } from './MealsData';
+import ListElemMeal from './ListElement/ListElemMeal';
+import { MealsData } from '../MealsData';
 
 const UlWrapper = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import GlobalStyle from './components/Ui/GlobalStyle';
 
 import Header from './components/Layout/Header';
-import ListOfMeals from './components/Menu/ListOfMeals';
+import ListOfMeals from './components/Menu/MealsList/ListOfMeals';
 
 function App() {
   return (
