@@ -26,15 +26,17 @@ const Description = styled.div`
   font-style: italic;
 `;
 
-const ListElemMeal = ({ title, desc, price }) => {
+const ListElemMeal = ({ title, desc, price, id }) => {
+  const DisplayPrice = `$${price.toFixed(2)}`;
+
   return (
     <Li>
       <BoxElemWrapper>
         <BoxBoldText>{title}</BoxBoldText>
         <Description>{desc}</Description>
-        <BoxBoldText>{price}</BoxBoldText>
+        <BoxBoldText>{DisplayPrice}</BoxBoldText>
       </BoxElemWrapper>
-      <MealForm />
+      <MealForm id={id} />
     </Li>
   );
 };

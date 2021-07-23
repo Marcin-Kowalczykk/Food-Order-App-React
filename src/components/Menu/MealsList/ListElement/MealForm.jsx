@@ -1,34 +1,30 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import BoxButton from '../../../Ui/BoxButton';
-import BoxBoldText from '../../../Ui/BoxBoldText';
+import BoxButtonBrown from '../../../Ui/BoxButtonBrown';
 import BoxElemWrapper from '../../../Ui/BoxElemWrapper';
-
-const Input = styled.input`
-  width: 3rem;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  background: tomato;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-`;
+import BoxInput from '../../../Ui/BoxInput';
 
 const FormWrapper = styled(BoxElemWrapper)`
   align-items: center;
   margin-bottom: 20px;
 `;
 
-const MealForm = () => {
+const MealForm = ({ id }) => {
   return (
     <form action="">
       <FormWrapper>
-        <BoxBoldText htmlFor="inputAmount">Amount</BoxBoldText>
-        <Input id="inputAmount" type="number" />
-        <BoxButton>Add</BoxButton>
+        <BoxInput
+          label="Amount:"
+          input={{
+            id: 'inputAmount' + id,
+            type: 'number',
+            defaultValue: '1',
+            min: '1',
+            max: '5',
+          }}
+        />
+        <BoxButtonBrown>Add</BoxButtonBrown>
       </FormWrapper>
     </form>
   );

@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
 import styled from 'styled-components';
-import BoxButton from '../Ui/BoxButton';
+import BoxButtonBrown from '../Ui/BoxButtonBrown';
 
-const ButtonWrapper = styled(BoxButton)`
+const ButtonWrapper = styled(BoxButtonBrown)`
   display: flex;
   justify-content: space-around;
   align-items: center;
