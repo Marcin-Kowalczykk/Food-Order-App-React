@@ -1,13 +1,16 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import BoxButton from '../Ui/BoxButtonBrown';
+import BoxButtonBrown from '../Ui/BoxButtonBrown';
 import BoxButtonWhite from '../Ui/BoxButtonWhite';
 
-const TotalAmount = styled.section`
+const AmountSection = styled.section`
   display: flex;
   justify-content: space-between;
   margin-right: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 `;
 
 const ButtonsArea = styled.section`
@@ -22,18 +25,18 @@ const CloseButton = styled(BoxButtonWhite)`
   border-radius: 20px;
 `;
 
-const Footer = () => {
+const Footer = ({ onHideModalHandler }) => {
   return (
-    <section>
-      <TotalAmount>
-        <h3>Total:</h3>
-        <h3>$100</h3>
-      </TotalAmount>
+    <footer>
+      <AmountSection>
+        <span>Total:</span>
+        <span>$100</span>
+      </AmountSection>
       <ButtonsArea>
-        <CloseButton>Close</CloseButton>
-        <BoxButton>Order</BoxButton>
+        <CloseButton onClick={onHideModalHandler}>Close</CloseButton>
+        <BoxButtonBrown>Order</BoxButtonBrown>
       </ButtonsArea>
-    </section>
+    </footer>
   );
 };
 

@@ -1,21 +1,17 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import BoxWrapper from '../Ui/BoxWrapper';
 
 import Footer from './Footer';
 import CartElement from './CartElement';
 
-const Shadow = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 300%;
-  background: rgba(0, 0, 0, 0.5);
+const AnimationShow = keyframes`
+    from {top: -300px;}
+    to {top: 10%;}
 `;
 
-const CartWrapper = styled(BoxWrapper)`
+const ContentWrapper = styled(BoxWrapper)`
   position: absolute;
   top: 10%;
   left: 50%;
@@ -23,19 +19,18 @@ const CartWrapper = styled(BoxWrapper)`
   overflow: hidden;
   width: 80%;
   max-width: 35rem;
+  z-index: 25;
+  animation: ${AnimationShow} 1s;
 `;
 
-const Cart = () => {
+const Cart = ({ onHideModalHandler }) => {
   return (
-    <div>
-      <Shadow />
-      <CartWrapper>
-        <ul>
-          <CartElement />
-          <Footer />
-        </ul>
-      </CartWrapper>
-    </div>
+    <ContentWrapper>
+      <ul>
+        <CartElement />
+        <Footer onHideModalHandler={onHideModalHandler} />
+      </ul>
+    </ContentWrapper>
   );
 };
 

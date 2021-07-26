@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import BoxButtonBrown from '../Ui/BoxButtonBrown';
 
-const ButtonWrapper = styled(BoxButtonBrown)`
+const CartBtn = styled(BoxButtonBrown)`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -18,16 +18,16 @@ const Quantity = styled.div`
   padding: 0.1rem;
 `;
 
-const CartButton = () => {
+const CartButton = ({ onShowModalHandler }) => {
   return (
     <Fragment>
-      <ButtonWrapper>
+      <CartBtn onClick={onShowModalHandler}>
         <div>
           <i className="fas fa-shopping-cart"></i>
         </div>
         <div>Cart</div>
         <Quantity>0</Quantity>
-      </ButtonWrapper>
+      </CartBtn>
     </Fragment>
   );
 };

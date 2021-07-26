@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import GlobalStyle from './components/Ui/GlobalStyle';
+import styled from 'styled-components';
 
 import Header from './components/Layout/Header';
-import Cart from './components/Cart/Cart';
 import ListOfMeals from './components/Menu/MealsList/ListOfMeals';
-import styled from 'styled-components';
+import ModalCart from './components/Ui/Modal/ModalCart';
 
 const UlWrapper = styled.div`
   display: flex;
@@ -15,11 +15,23 @@ const UlWrapper = styled.div`
 `;
 
 function App() {
+  const [modalState, setModalState] = useState(false);
+
   return (
     <Fragment>
       <GlobalStyle />
-      <Header />
-      <Cart />
+      {modalState && (
+        <ModalCart
+          onHideModalHandler={() => {
+            setModalState(false);
+          }}
+        />
+      )}
+      <Header
+        onShowModalHandler={() => {
+          setModalState(true);
+        }}
+      />
       <UlWrapper>
         <ListOfMeals />
       </UlWrapper>

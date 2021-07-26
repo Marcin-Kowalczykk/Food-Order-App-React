@@ -36,12 +36,12 @@ const Img = styled.img`
   transform: rotateZ(-4deg) translateY(-4rem) translateX(-1rem);
 `;
 
-const Header = () => {
+const Header = ({ onShowModalHandler }) => {
   return (
     <Fragment>
       <Nav>
         <H1>Food Order App</H1>
-        <CartButton />
+        <CartButton onShowModalHandler={onShowModalHandler} />
       </Nav>
       <ImgSection>
         <Img
