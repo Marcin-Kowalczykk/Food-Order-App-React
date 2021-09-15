@@ -25,14 +25,12 @@ const CloseButton = styled(BoxButtonWhite)`
   border-radius: 20px;
 `;
 
-const Footer = ({ onHideModalHandler, totalPrice }) => {
-  const price = totalPrice.toFixed(2);
-
+const Footer = ({ onHideModalHandler }) => {
   return (
     <footer>
       <AmountSection>
         <span>Total:</span>
-        <span>{`$${price}`}</span>
+        <span>10</span>
       </AmountSection>
       <ButtonsArea>
         <CloseButton onClick={onHideModalHandler}>Close</CloseButton>

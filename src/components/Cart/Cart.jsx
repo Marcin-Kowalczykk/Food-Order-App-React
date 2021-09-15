@@ -23,11 +23,20 @@ const ContentWrapper = styled(BoxWrapper)`
   animation: ${AnimationShow} 1s;
 `;
 
-const Cart = ({ onHideModalHandler, dataToCart, totalPrice }) => {
+const Cart = ({ onHideModalHandler }) => {
+  const dummyList = [
+    {
+      id: 12345,
+      title: 'lalalal',
+      price: 20,
+      amount: 2,
+    },
+  ];
+
   return (
     <ContentWrapper>
       <ul>
-        {dataToCart.map((element) => {
+        {dummyList.map((element) => {
           return (
             <CartElement
               key={element.id}
@@ -37,11 +46,7 @@ const Cart = ({ onHideModalHandler, dataToCart, totalPrice }) => {
             />
           );
         })}
-        <Footer
-          onHideModalHandler={onHideModalHandler}
-          price={dataToCart.price}
-          totalPrice={totalPrice}
-        />
+        <Footer onHideModalHandler={onHideModalHandler} />
       </ul>
     </ContentWrapper>
   );

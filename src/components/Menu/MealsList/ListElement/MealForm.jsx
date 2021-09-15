@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 import BoxButtonBrown from '../../../Ui/BoxButtonBrown';
@@ -10,21 +10,7 @@ const FormWrapper = styled(BoxElemWrapper)`
   margin-bottom: 20px;
 `;
 
-const MealForm = ({ id, onSaveMealData }) => {
-  const [selectedAmount, setSelectedAmount] = useState(1);
-
-  const addMealToCart = (event) => {
-    event.preventDefault();
-    const mealDatafromForm = {
-      amount: +selectedAmount,
-    };
-    onSaveMealData(mealDatafromForm);
-  };
-
-  const inputAmountHandler = (event) => {
-    setSelectedAmount(event.target.value);
-  };
-
+const MealForm = ({ id }) => {
   return (
     <form action="">
       <FormWrapper>
@@ -36,11 +22,10 @@ const MealForm = ({ id, onSaveMealData }) => {
             min: '1',
             max: '5',
             step: '1',
-            value: selectedAmount,
-            onChange: inputAmountHandler,
+            defaultValue: '1',
           }}
         />
-        <BoxButtonBrown onClick={addMealToCart}>Add</BoxButtonBrown>
+        <BoxButtonBrown>Add</BoxButtonBrown>
       </FormWrapper>
     </form>
   );

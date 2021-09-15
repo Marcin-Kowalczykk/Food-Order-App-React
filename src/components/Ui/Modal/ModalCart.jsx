@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Shadow from './Shadow';
 import Cart from '../../Cart/Cart';
 
-const ModalCart = ({ onHideModalHandler, dataToCart, totalPrice }) => {
+const ModalCart = ({ onHideModalHandler }) => {
   const portal = document.getElementById('modal-root');
 
   return (
@@ -14,11 +14,7 @@ const ModalCart = ({ onHideModalHandler, dataToCart, totalPrice }) => {
         portal
       )}
       {ReactDOM.createPortal(
-        <Cart
-          onHideModalHandler={onHideModalHandler}
-          totalPrice={totalPrice}
-          dataToCart={dataToCart}
-        />,
+        <Cart onHideModalHandler={onHideModalHandler} />,
         portal
       )}
     </Fragment>

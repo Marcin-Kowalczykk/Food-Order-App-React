@@ -4,14 +4,7 @@ import BoxWrapper from '../../Ui/BoxWrapper';
 
 import ListElemMeal from './ListElement/ListElemMeal';
 
-const ListOfMeals = ({ MealsList, onAddMealData }) => {
-  const saveMealData = (mealDataFromElem) => {
-    const mealData = {
-      ...mealDataFromElem,
-    };
-    onAddMealData(mealData);
-  };
-
+const ListOfMeals = ({ MealsList }) => {
   return (
     <BoxWrapper>
       <ul>
@@ -23,7 +16,6 @@ const ListOfMeals = ({ MealsList, onAddMealData }) => {
               title={element.title}
               desc={element.desc}
               price={element.price}
-              onAddMealData={saveMealData}
             />
           );
         })}
