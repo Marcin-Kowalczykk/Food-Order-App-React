@@ -25,6 +25,10 @@ const Section = styled(BoxElemWrapper)`
   align-items: center;
 `;
 
+const Price = styled(BoxBoldText)`
+  color: black;
+`;
+
 const QuantityArea = styled.div`
   border: 1px solid brown;
   border-radius: 5px;
@@ -34,16 +38,16 @@ const QuantityArea = styled.div`
   color: #c72d12;
 `;
 
-const CartElement = () => {
+const CartElement = ({ title, price, amount }) => {
   return (
     <Li>
       <BoxElemWrapper>
-        <BoxBoldText>Sushi</BoxBoldText>
-        <BoxBoldText>$22.99</BoxBoldText>
+        <BoxBoldText>{title}</BoxBoldText>
+        <Price>{price}</Price>
       </BoxElemWrapper>
       <Section>
         <BoxBoldText>Quantity:</BoxBoldText>
-        <QuantityArea>1</QuantityArea>
+        <QuantityArea>{amount}</QuantityArea>
       </Section>
       <Section>
         <BoxButtonWhite>-</BoxButtonWhite>

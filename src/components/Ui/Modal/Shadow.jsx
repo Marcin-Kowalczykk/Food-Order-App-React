@@ -18,8 +18,8 @@ const ShadowWrapper = styled.div`
   animation: ${AnimationShow} 2s;
 `;
 
-const Shadow = () => {
-  return <ShadowWrapper />;
+const Shadow = ({ onHideModalHandler }) => {
+  return <ShadowWrapper onClick={onHideModalHandler} />;
 };
 
 export default Shadow;

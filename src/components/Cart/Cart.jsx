@@ -8,12 +8,12 @@ import CartElement from './CartElement';
 
 const AnimationShow = keyframes`
     from {top: -300px;}
-    to {top: 10%;}
+    to {top: 15%;}
 `;
 
 const ContentWrapper = styled(BoxWrapper)`
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, 50%);
   overflow: hidden;
@@ -23,12 +23,25 @@ const ContentWrapper = styled(BoxWrapper)`
   animation: ${AnimationShow} 1s;
 `;
 
-const Cart = ({ onHideModalHandler }) => {
+const Cart = ({ onHideModalHandler, dataToCart, totalPrice }) => {
   return (
     <ContentWrapper>
       <ul>
-        <CartElement />
-        <Footer onHideModalHandler={onHideModalHandler} />
+        {dataToCart.map((element) => {
+          return (
+            <CartElement
+              key={element.id}
+              title={element.title}
+              price={element.price}
+              amount={element.amount}
+            />
+          );
+        })}
+        <Footer
+          onHideModalHandler={onHideModalHandler}
+          price={dataToCart.price}
+          totalPrice={totalPrice}
+        />
       </ul>
     </ContentWrapper>
   );

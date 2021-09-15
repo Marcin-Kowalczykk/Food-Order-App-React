@@ -3,13 +3,19 @@ import React from 'react';
 import BoxWrapper from '../../Ui/BoxWrapper';
 
 import ListElemMeal from './ListElement/ListElemMeal';
-import { MealsData } from '../MealsData';
 
-const ListOfMeals = () => {
+const ListOfMeals = ({ MealsList, onAddMealData }) => {
+  const saveMealData = (mealDataFromElem) => {
+    const mealData = {
+      ...mealDataFromElem,
+    };
+    onAddMealData(mealData);
+  };
+
   return (
     <BoxWrapper>
       <ul>
-        {MealsData.map((element) => {
+        {MealsList.map((element) => {
           return (
             <ListElemMeal
               key={element.id}
@@ -17,6 +23,7 @@ const ListOfMeals = () => {
               title={element.title}
               desc={element.desc}
               price={element.price}
+              onAddMealData={saveMealData}
             />
           );
         })}

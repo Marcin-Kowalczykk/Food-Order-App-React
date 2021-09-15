@@ -7,8 +7,8 @@ const BoldText = styled.label`
   color: #c72d12;
 `;
 
-const BoxBoldText = ({ children }) => {
-  return <BoldText>{children}</BoldText>;
+const BoxBoldText = ({ children, className }) => {
+  return <BoldText className={className}>{children}</BoldText>;
 };
 
 export default BoxBoldText;
