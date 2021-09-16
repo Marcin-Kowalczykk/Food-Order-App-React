@@ -24,16 +24,15 @@ const cartReducer = (state, action) => {
 };
 
 const CartProvider = (props) => {
-  const [cartState, setCartState] = useState([]);
+  /* const [cartState, setCartState] = useState([]);
   const [priceState, setPriceState] = useState(0);
   
   const addItemHandler = (item) => { 
     const itemsArray = items.concat(item);
     setCartState(itemsArray);
-    const LatestIteam = itemsArray.
-    setPriceState(); 
-  };
-  
+    const LatestItem = itemsArray.price;
+    setPriceState(LatestItem); 
+  }; */
 
   const [cartState, dispatchCartState] = useReducer(cartReducer, initialCartState);
 
