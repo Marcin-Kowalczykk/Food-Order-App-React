@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 import GlobalStyle from './components/Ui/GlobalStyle';
 import styled from 'styled-components';
@@ -7,6 +7,8 @@ import Header from './components/Layout/Header';
 import ListOfMeals from './components/Menu/MealsList/ListOfMeals';
 import ModalCart from './components/Ui/Modal/ModalCart';
 import { MealsData } from './components/Menu/MealsData';
+
+import CartProvider from './store/CartProvider';
 
 const UlWrapper = styled.div`
   display: flex;
@@ -19,7 +21,7 @@ function App() {
   const [modalState, setModalState] = useState(false);
 
   return (
-    <Fragment>
+    <CartProvider>
       <GlobalStyle />
       {modalState && (
         <ModalCart
@@ -36,7 +38,7 @@ function App() {
       <UlWrapper>
         <ListOfMeals MealsList={MealsData} />
       </UlWrapper>
-    </Fragment>
+    </CartProvider>
   );
 }
 
