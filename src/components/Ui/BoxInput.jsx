@@ -21,7 +21,9 @@ const BoxInput = ({ input, children, id, label }) => {
   return (
     <BoxElemWrapper>
       <BoxBoldText htmlFor={id}>{label}</BoxBoldText>
-      <Input {...input}>{children}</Input>
+      <Input id={id} {...input}>
+        {children}
+      </Input>
     </BoxElemWrapper>
   );
 };

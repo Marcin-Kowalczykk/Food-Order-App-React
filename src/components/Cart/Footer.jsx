@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled from 'styled-components';
 import BoxButtonBrown from '../Ui/BoxButtonBrown';
 import BoxButtonWhite from '../Ui/BoxButtonWhite';
+
+import CartContext from '../../store/CartContext';
 
 const AmountSection = styled.section`
   display: flex;
@@ -26,11 +28,15 @@ const CloseButton = styled(BoxButtonWhite)`
 `;
 
 const Footer = ({ onHideModalHandler }) => {
+  const cartCtx = useContext(CartContext);
+
+  const totalAmount2 = cartCtx.totalAmount.toFixed(2);
+
   return (
     <footer>
       <AmountSection>
         <span>Total:</span>
-        <span>10</span>
+        <span>{totalAmount2}</span>
       </AmountSection>
       <ButtonsArea>
         <CloseButton onClick={onHideModalHandler}>Close</CloseButton>

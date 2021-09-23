@@ -24,7 +24,7 @@ const CartButton = ({ onShowModalHandler }) => {
   const cartCtx = useContext(CartContext);
 
   const quantityOfCartItems = cartCtx.items.reduce((a, b) => {
-    return a + b;
+    return a + b.amount;
   }, 0);
 
   return (

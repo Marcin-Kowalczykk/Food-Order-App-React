@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled from 'styled-components';
 import BoxBoldText from '../../../Ui/BoxBoldText';
 import BoxElemWrapper from '../../../Ui/BoxElemWrapper';
 
 import MealForm from './MealForm';
+
+import CartContext from '../../../../store/CartContext';
 
 const Li = styled.li`
   display: flex;
@@ -27,7 +29,18 @@ const Description = styled.div`
 `;
 
 const ListElemMeal = ({ title, desc, price, id }) => {
+  const cartCtx = useContext(CartContext);
   const DisplayPrice = `$${price.toFixed(2)}`;
+
+  const addToCartHandler = (amountfromForm) => {
+    cartCtx.addItem({
+      key: id,
+      id: id,
+      title: title,
+      price: price,
+      amount: amountfromForm,
+    });
+  };
 
   return (
     <Li>
@@ -36,7 +49,7 @@ const ListElemMeal = ({ title, desc, price, id }) => {
         <Description>{desc}</Description>
         <BoxBoldText>{DisplayPrice}</BoxBoldText>
       </BoxElemWrapper>
-      <MealForm id={id} />
+      <MealForm id={id} onAddItem={addToCartHandler} />
     </Li>
   );
 };

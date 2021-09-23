@@ -38,7 +38,7 @@ const QuantityArea = styled.div`
   color: #c72d12;
 `;
 
-const CartElement = ({ title, price, amount }) => {
+const CartElement = ({ title, price, amount, onAdd, onRemove }) => {
   return (
     <Li>
       <BoxElemWrapper>
@@ -50,8 +50,8 @@ const CartElement = ({ title, price, amount }) => {
         <QuantityArea>{amount}</QuantityArea>
       </Section>
       <Section>
-        <BoxButtonWhite>-</BoxButtonWhite>
-        <BoxButtonWhite>+</BoxButtonWhite>
+        <BoxButtonWhite onClick={onRemove}>-</BoxButtonWhite>
+        <BoxButtonWhite onClick={onAdd}>+</BoxButtonWhite>
       </Section>
     </Li>
   );

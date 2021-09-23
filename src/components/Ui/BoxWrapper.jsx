@@ -9,8 +9,12 @@ const Wrapper = styled.div`
   margin-top: 7rem;
 `;
 
-const BoxWrapper = ({ children, className }) => {
-  return <Wrapper className={className}>{children}</Wrapper>;
+const BoxWrapper = ({ children, className, id }) => {
+  return (
+    <Wrapper className={className} id={id}>
+      {children}
+    </Wrapper>
+  );
 };
 
 export default BoxWrapper;
