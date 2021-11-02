@@ -1,24 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import styled from 'styled-components';
 import BoxButtonBrown from '../Ui/BoxButtonBrown';
 import BoxButtonWhite from '../Ui/BoxButtonWhite';
+import OrderForm from './OrderForm';
 
 import CartContext from '../../store/CartContext';
 
 const AmountSection = styled.section`
   display: flex;
   justify-content: space-between;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
+  margin: 2em;
   font-size: 1.2rem;
   font-weight: bold;
+
+  @media (max-width: 600px) {
+    margin: 1em;
+  }
 `;
 
 const ButtonsArea = styled.section`
   display: flex;
   justify-content: flex-end;
-  margin-right: 2rem;
+  margin: 1em;
 `;
 
 const CloseButton = styled(BoxButtonWhite)`
@@ -30,18 +34,31 @@ const CloseButton = styled(BoxButtonWhite)`
 const Footer = ({ onHideModalHandler }) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount2 = cartCtx.totalAmount.toFixed(2);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const totalPrice = `${cartCtx.totalAmount.toFixed(2)}$`;
+
+  const buttons = (
+    <ButtonsArea>
+      <CloseButton onClick={onHideModalHandler}>Close</CloseButton>
+      <BoxButtonBrown
+        onClick={() => {
+          setIsClicked(true);
+        }}
+      >
+        Order
+      </BoxButtonBrown>
+    </ButtonsArea>
+  );
 
   return (
     <footer>
       <AmountSection>
         <span>Total:</span>
-        <span>{totalAmount2}</span>
+        <span>{totalPrice}</span>
       </AmountSection>
-      <ButtonsArea>
-        <CloseButton onClick={onHideModalHandler}>Close</CloseButton>
-        <BoxButtonBrown>Order</BoxButtonBrown>
-      </ButtonsArea>
+      {isClicked && <OrderForm />}
+      {!isClicked && buttons}
     </footer>
   );
 };

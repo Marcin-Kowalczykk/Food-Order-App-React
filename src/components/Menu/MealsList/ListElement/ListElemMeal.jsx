@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import styled from 'styled-components';
 import BoxBoldText from '../../../Ui/BoxBoldText';
-import BoxElemWrapper from '../../../Ui/BoxElemWrapper';
+import BoxColumnWrapper from '../../../Ui/BoxColumnWrapper';
 
 import MealForm from './MealForm';
 
@@ -44,11 +44,11 @@ const ListElemMeal = ({ title, desc, price, id }) => {
 
   return (
     <Li>
-      <BoxElemWrapper>
+      <BoxColumnWrapper>
         <BoxBoldText>{title}</BoxBoldText>
         <Description>{desc}</Description>
         <BoxBoldText>{DisplayPrice}</BoxBoldText>
-      </BoxElemWrapper>
+      </BoxColumnWrapper>
       <MealForm id={id} onAddItem={addToCartHandler} />
     </Li>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import BoxBoldText from '../Ui/BoxBoldText';
-import BoxElemWrapper from '../Ui/BoxElemWrapper';
+import BoxColumnWrapper from '../Ui/BoxColumnWrapper';
 import BoxButtonWhite from '../Ui/BoxButtonWhite';
 
 const Li = styled.li`
@@ -15,12 +15,12 @@ const Li = styled.li`
   margin: 1rem 2rem 1rem 0;
 
   @media (max-width: 600px) {
-    font-size: 0.7rem;
+    font-size: 12px;
     margin: 0.3rem 1.2rem 0.3rem -1rem;
   }
 `;
 
-const Section = styled(BoxElemWrapper)`
+const Section = styled(BoxColumnWrapper)`
   flex-direction: row;
   align-items: center;
 `;
@@ -41,10 +41,10 @@ const QuantityArea = styled.div`
 const CartElement = ({ title, price, amount, onAdd, onRemove }) => {
   return (
     <Li>
-      <BoxElemWrapper>
+      <BoxColumnWrapper>
         <BoxBoldText>{title}</BoxBoldText>
-        <Price>{price}</Price>
-      </BoxElemWrapper>
+        <Price>{`${price}$`}</Price>
+      </BoxColumnWrapper>
       <Section>
         <BoxBoldText>Quantity:</BoxBoldText>
         <QuantityArea>{amount}</QuantityArea>

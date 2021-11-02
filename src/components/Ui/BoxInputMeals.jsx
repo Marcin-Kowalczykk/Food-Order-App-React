@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 import BoxBoldText from './BoxBoldText';
-import BoxElemWrapper from './BoxElemWrapper';
+import BoxColumnWrapper from './BoxColumnWrapper';
 
 const Input = styled.input`
   width: 3rem;
@@ -17,15 +17,15 @@ const Input = styled.input`
   margin-left: 5px;
 `;
 
-const BoxInput = ({ input, children, id, label }) => {
+const BoxInputMeals = ({ input, children, id, label }) => {
   return (
-    <BoxElemWrapper>
+    <BoxColumnWrapper>
       <BoxBoldText htmlFor={id}>{label}</BoxBoldText>
       <Input id={id} {...input}>
         {children}
       </Input>
-    </BoxElemWrapper>
+    </BoxColumnWrapper>
   );
 };
 
-export default BoxInput;
+export default BoxInputMeals;

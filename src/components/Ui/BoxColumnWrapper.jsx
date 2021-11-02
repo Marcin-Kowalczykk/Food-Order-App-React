@@ -2,14 +2,14 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Section = styled.section`
+const Section = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 `;
 
-const BoxElemWrapper = ({ children, className }) => {
+const BoxColumnWrapper = ({ children, className }) => {
   return <Section className={className}>{children}</Section>;
 };
 
-export default BoxElemWrapper;
+export default BoxColumnWrapper;

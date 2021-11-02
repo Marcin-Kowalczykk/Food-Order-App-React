@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 import BoxButtonBrown from '../../../Ui/BoxButtonBrown';
-import BoxElemWrapper from '../../../Ui/BoxElemWrapper';
-import BoxInput from '../../../Ui/BoxInput';
+import BoxColumnWrapper from '../../../Ui/BoxColumnWrapper';
+import BoxInputMeals from '../../../Ui/BoxInputMeals';
 
-const FormWrapper = styled(BoxElemWrapper)`
+const MealFormWrapper = styled(BoxColumnWrapper)`
   align-items: center;
   margin-bottom: 20px;
 `;
 
 const MealForm = ({ id, onAddItem }) => {
-  //const formInputRef = useRef();
   const [inputAmountState, setInputAmountState] = useState(1);
   const [isFormValid, setIsFormValid] = useState(true);
 
   const submitFormHandler = (e) => {
     e.preventDefault();
-    // const inputRefData = formInputRef.current.value;
-    // const inputRefDataNumber = +inputRefData;
+
     if (inputAmountState < 1 || inputAmountState > 5) {
       setIsFormValid(false);
       return;
@@ -34,8 +32,8 @@ const MealForm = ({ id, onAddItem }) => {
 
   return (
     <form action="">
-      <FormWrapper>
-        <BoxInput
+      <MealFormWrapper>
+        <BoxInputMeals
           //ref={formInputRef}
           label="Amount:"
           input={{
@@ -50,7 +48,7 @@ const MealForm = ({ id, onAddItem }) => {
         />
         <BoxButtonBrown onClick={submitFormHandler}>Add</BoxButtonBrown>
         {!isFormValid && <p>Amount have to be between 1-5</p>}
-      </FormWrapper>
+      </MealFormWrapper>
     </form>
   );
 };
