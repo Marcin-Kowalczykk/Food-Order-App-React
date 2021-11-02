@@ -20,8 +20,13 @@ const Button = styled.button`
   }
 `;
 
-const BoxButtonBrown = ({ children, className, type, onClick }) => (
-  <Button className={className} type={type || 'button'} onClick={onClick}>
+const BoxButtonBrown = ({ children, className, type, onClick, disabled }) => (
+  <Button
+    className={className}
+    type={type || 'button'}
+    onClick={onClick}
+    disabled={disabled}
+  >
     {children}
   </Button>
 );
