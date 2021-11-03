@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Food-Order-App-React/static/js/main.938a97ba.chunk.js",
-    "main.js.map": "/Food-Order-App-React/static/js/main.938a97ba.chunk.js.map",
+    "main.js": "/Food-Order-App-React/static/js/main.2d303eb2.chunk.js",
+    "main.js.map": "/Food-Order-App-React/static/js/main.2d303eb2.chunk.js.map",
     "runtime-main.js": "/Food-Order-App-React/static/js/runtime-main.fd899d1a.js",
     "runtime-main.js.map": "/Food-Order-App-React/static/js/runtime-main.fd899d1a.js.map",
     "static/js/2.992e557d.chunk.js": "/Food-Order-App-React/static/js/2.992e557d.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.fd899d1a.js",
     "static/js/2.992e557d.chunk.js",
-    "static/js/main.938a97ba.chunk.js"
+    "static/js/main.2d303eb2.chunk.js"
   ]
 }
