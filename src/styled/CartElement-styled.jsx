@@ -7,7 +7,7 @@ export const Li = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--white-background-color);
   border-bottom: 2px solid tomato;
   margin: 1rem 2rem 1rem 0;
 
@@ -23,7 +23,7 @@ export const Section = styled(BoxColumnWrapper)`
 `;
 
 export const Price = styled(BoxBoldText)`
-  color: black;
+  color: var(--black-font-color);
 `;
 
 export const AmountSection = styled.div`
@@ -32,5 +32,5 @@ export const AmountSection = styled.div`
   padding: 2.5px 5px;
   font-size: 0.7rem;
   font-weight: bold;
-  color: #c72d12;
+  color: var(--bold-elements-color);
 `;

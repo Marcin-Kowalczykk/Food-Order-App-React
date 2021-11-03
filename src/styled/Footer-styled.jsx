@@ -26,12 +26,12 @@ export const CloseButton = styled(BoxButtonWhite)`
 `;
 
 export const ErrorMsg = styled.p`
-  color: red;
+  color: var(--error-color);
   text-align: center;
   font-size: 12px;
 `;
 
 export const FeedBack = styled.p`
-  color: tomato;
+  color: var(--tomato-elements-color);
   text-align: center;
 `;

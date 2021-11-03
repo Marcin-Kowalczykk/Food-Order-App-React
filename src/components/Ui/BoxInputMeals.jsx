@@ -17,8 +17,8 @@ const Input = styled.input`
   outline: none;
   border: none;
   border-radius: 5px;
-  background: #ff6347ca;
-  color: #ffffff;
+  background: var(--tomato-elements-color);
+  color: var(--white-font-color);
   font-weight: bold;
   text-align: center;
   cursor: pointer;

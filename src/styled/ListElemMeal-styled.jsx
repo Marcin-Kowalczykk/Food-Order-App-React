@@ -4,7 +4,7 @@ export const Li = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--white-background-color);
   border-bottom: 2px solid tomato;
   margin: 0 3em 1em 0;
 

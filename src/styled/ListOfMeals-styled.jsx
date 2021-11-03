@@ -4,7 +4,7 @@ export const UlWrapper = styled.div`
   display: block;
   margin: 7em 8em 1em 8em;
   padding: 0.1em;
-  background: white;
+  background: var(--white-background-color);
   border-radius: 1em;
 
   @media (max-width: 600px) {
@@ -14,5 +14,5 @@ export const UlWrapper = styled.div`
 
 export const FeedBack = styled.p`
   text-align: center;
-  color: red;
+  color: var(--error-color);
 `;

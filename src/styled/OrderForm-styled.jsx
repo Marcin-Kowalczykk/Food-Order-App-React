@@ -31,7 +31,7 @@ export const Input = styled.input`
 `;
 
 export const ErrorMsg = styled.p`
-  color: #ff0000df;
+  color: var(--error-color);
   font-size: 12px;
   text-align: end;
   margin: 0 3em 0 0;
@@ -49,9 +49,9 @@ export const ButtonContainer = styled.section`
 
 export const SubmitButton = styled(BoxButtonBrown)`
   &:disabled {
-    background-color: #ccc;
-    color: #292929;
-    border-color: #ccc;
+    background-color: var(--submit-button-color);
+    color: var(--black-font-color);
+    border-color: var(--submit-button-color);
     cursor: not-allowed;
   }
 `;

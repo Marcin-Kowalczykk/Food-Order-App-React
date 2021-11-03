@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const BoldText = styled.label`
   font-weight: bold;
-  color: #c72d12;
+  color: var(--bold-elements-color);
 `;
 
 const BoxBoldText = ({ children, className }) => {
