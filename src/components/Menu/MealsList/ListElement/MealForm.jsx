@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 
-import styled from 'styled-components';
 import BoxButtonBrown from '../../../Ui/BoxButtonBrown';
-import BoxColumnWrapper from '../../../Ui/BoxColumnWrapper';
 import BoxInputMeals from '../../../Ui/BoxInputMeals';
-
-const MealFormWrapper = styled(BoxColumnWrapper)`
-  align-items: center;
-  margin-bottom: 20px;
-`;
+import { MealFormWrapper } from '../../../../styled/MealForm-styled';
 
 const MealForm = ({ id, onAddItem }) => {
   const [inputAmountState, setInputAmountState] = useState(1);

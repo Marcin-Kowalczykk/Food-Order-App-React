@@ -1,15 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
 
-import styled from 'styled-components';
-
-import BoxWrapper from '../../Ui/BoxWrapper';
 import ListElemMeal from './ListElement/ListElemMeal';
 import { MEALS_FROM_FIREBASE } from '../../../api/ApiLinks';
 
-const P = styled.p`
-  text-align: center;
-  color: red;
-`;
+import { UlWrapper, FeedBack } from '../../../styled/ListOfMeals-styled';
 
 const ListOfMeals = () => {
   const [mealsArray, setMealsArray] = useState([]);
@@ -53,9 +47,9 @@ const ListOfMeals = () => {
   }, [fetchMealsFromFireBase]);
 
   return (
-    <BoxWrapper>
-      {errorMsg && <P>{errorMsg}</P>}
-      {isLoading && <P>Loading ... </P>}
+    <UlWrapper>
+      {errorMsg && <FeedBack>{errorMsg}</FeedBack>}
+      {isLoading && <FeedBack>Loading ... </FeedBack>}
       <ul>
         {mealsArray.map((element) => {
           return (
@@ -69,7 +63,7 @@ const ListOfMeals = () => {
           );
         })}
       </ul>
-    </BoxWrapper>
+    </UlWrapper>
   );
 };
 

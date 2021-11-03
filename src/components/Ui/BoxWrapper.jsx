@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   background: white;
   border-radius: 10px;
   width: 80%;
-  margin-top: 7rem;
+  margin-top: 7em;
 `;
 
 const BoxWrapper = ({ children, className, id }) => {
