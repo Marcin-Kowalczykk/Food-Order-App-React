@@ -61,7 +61,7 @@ const SubmitButton = styled(BoxButtonBrown)`
   }
 `;
 
-const OrderForm = () => {
+const OrderForm = ({ onAddNewOrder }) => {
   const hasNumber = /\d/; // for checking do input contain numbers
 
   const {
@@ -131,14 +131,23 @@ const OrderForm = () => {
       !inputPhoneIsValid
     ) {
       return;
+    } else {
+      const userData = {
+        userName: inputNameValue,
+        adress: inputAdressValue,
+        zipCode: inputZipValue,
+        phoneNumber: inputPhoneValue,
+      };
+
+      onAddNewOrder(userData);
+
+      console.log('form is subbmited');
+
+      clearInputName();
+      clearInputAdress();
+      clearInputZip();
+      clearInputPhone();
     }
-
-    console.log('form is subbmited');
-
-    clearInputName();
-    clearInputAdress();
-    clearInputZip();
-    clearInputPhone();
   };
 
   return (
