@@ -9,11 +9,20 @@ import {
   SubmitButton,
 } from '../../styled/OrderForm-styled';
 
+// import useValidationReducer from '../../hooks/use-validation-reducer';
 import useValidation from '../../hooks/use-validation';
 
-const OrderForm = ({ onAddNewOrder }) => {
-  const hasNumber = /\d/; // for checking do input contain numbers
+const hasNumber = /\d/; // for checking do input contain numbers
 
+const isNameValid = (inputValue) =>
+  inputValue.trim() !== '' && inputValue.length > 2;
+const isAdressValid = (inputValue) =>
+  inputValue.trim() !== '' && inputValue.length > 3 && hasNumber.test(inputValue);
+const isZipValid = (inputValue) =>
+  inputValue.length == 6 && inputValue.includes('-') && hasNumber.test(inputValue);
+const isPhoneValid = (inputValue) => inputValue.length == 9;
+
+const OrderForm = ({ onAddNewOrder }) => {
   const {
     inputValue: inputNameValue,
     isValid: inputNameIsValid,
@@ -21,9 +30,7 @@ const OrderForm = ({ onAddNewOrder }) => {
     onChangeInputHandler: onChangeInputNameHandler,
     onBlurInputHandler: onBlurInputNameHandler,
     clearInput: clearInputName,
-  } = useValidation(
-    (inputValue) => inputValue.trim() !== '' && inputValue.length > 2
-  );
+  } = useValidation(isNameValid);
 
   const {
     inputValue: inputAdressValue,
@@ -32,10 +39,7 @@ const OrderForm = ({ onAddNewOrder }) => {
     onChangeInputHandler: onChangeInputAdressHandler,
     onBlurInputHandler: onBlurInputAdressHandler,
     clearInput: clearInputAdress,
-  } = useValidation(
-    (inputValue) =>
-      inputValue.trim() !== '' && inputValue.length > 3 && hasNumber.test(inputValue)
-  );
+  } = useValidation(isAdressValid);
 
   const {
     inputValue: inputZipValue,
@@ -44,12 +48,7 @@ const OrderForm = ({ onAddNewOrder }) => {
     onChangeInputHandler: onChangeInputZipHandler,
     onBlurInputHandler: onBlurInputZipHandler,
     clearInput: clearInputZip,
-  } = useValidation(
-    (inputValue) =>
-      inputValue.length == 6 &&
-      inputValue.includes('-') &&
-      hasNumber.test(inputValue)
-  );
+  } = useValidation(isZipValid);
 
   const {
     inputValue: inputPhoneValue,
@@ -58,7 +57,7 @@ const OrderForm = ({ onAddNewOrder }) => {
     onChangeInputHandler: onChangeInputPhoneHandler,
     onBlurInputHandler: onBlurInputPhoneHandler,
     clearInput: clearInputPhone,
-  } = useValidation((inputValue) => inputValue.length == 9);
+  } = useValidation(isPhoneValid);
 
   let formIsValid = false;
 
@@ -74,12 +73,7 @@ const OrderForm = ({ onAddNewOrder }) => {
   const submitFormHandler = (event) => {
     event.preventDefault();
 
-    if (
-      !inputNameIsValid ||
-      !inputAdressIsValid ||
-      !inputZipIsValid ||
-      !inputPhoneIsValid
-    ) {
+    if (!formIsValid) {
       return;
     } else {
       const userData = {
