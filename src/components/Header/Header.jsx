@@ -2,15 +2,19 @@ import React, { Fragment } from 'react';
 
 import CartButton from '../CartElements/CartButton';
 import Description from '../Description/Description';
+import ThemeSwitch from '../Ui/ThemeSwitch';
 
-import { Nav, H1, ImgSection, Img } from '.';
+import { Nav, IconsSection, H1, ImgSection, Img } from '.';
 
-const Header = ({ onShowModalHandler }) => {
+const Header = ({ onShowModal, onToggleTheme }) => {
   return (
     <Fragment>
       <Nav>
         <H1>Food Order App</H1>
-        <CartButton onShowModalHandler={onShowModalHandler} />
+        <IconsSection>
+          <CartButton onShowModal={onShowModal} />
+          <ThemeSwitch onToggleTheme={onToggleTheme} />
+        </IconsSection>
       </Nav>
       <ImgSection>
         <Img

@@ -1,13 +1,17 @@
 export const themeDark = {
   color: {
-    main: 'tomato',
+    main: '#ff6347ca',
     normal: 'white',
     background: 'gray',
     navBackground: 'black',
+    boldColor: '#c72d12',
+    errorColor: 'red',
+    submitButtonColor: '#ccc',
   },
   font: {
-    extraSmall: '14px',
-    small: '16px',
+    extraSmall10: '10px',
+    extraSmall: '12px',
+    small: '18px',
     large: '20px',
     extraLarge: '24px',
   },
@@ -15,15 +19,33 @@ export const themeDark = {
 
 export const themeLight = {
   color: {
-    main: 'tomato',
-    normal: 'black',
+    main: '#ff6347ca',
+    normal: '#e6e6e6',
     background: 'white',
-    navBackground: '#dad8d8',
+    navBackground: 'rgba(255, 255, 255, 0.945)',
+    boldColor: '#c72d12',
+    errorColor: 'red',
+    submitButtonColor: '#ccc',
   },
   font: {
-    extraSmall: '14px',
-    small: '16px',
+    extraSmall10: '10px',
+    extraSmall: '12px',
+    small: '18px',
     large: '20px',
     extraLarge: '24px',
   },
 };
+
+// :root {
+//   --main-background-color: #41403f;
+//   --tomato-elements-color: #ff6347ca;
+//   --error-color: red;
+//   --white-font-color: white;
+//   --black-font-color: black;
+//   --white-background-color: white;
+//   --bold-elements-color: #c72d12;
+//   --dark-button-color: #5f3028;
+//   --dark-button-hover: #ad3824;
+//   --light-button-color: white;
+//   --light-button-hover: #b6b6b66f;
+// }

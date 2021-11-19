@@ -7,12 +7,12 @@ export const Li = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--white-background-color);
-  border-bottom: 2px solid tomato;
+  background-color: ${(props) => props.theme.color.normal};
+  border-bottom: 2px solid ${(props) => props.theme.color.main};
   margin: 1em;
 
   @media (max-width: 600px) {
-    font-size: 12px;
+    font-size: ${(props) => props.theme.font.extraSmall};
     margin: 1em;
   }
 `;
@@ -23,14 +23,14 @@ export const Section = styled(BoxColumnWrapper)`
 `;
 
 export const Price = styled(BoxBoldText)`
-  color: var(--black-font-color);
+  color: black;
 `;
 
 export const AmountSection = styled.div`
-  border: 1px solid brown;
+  border: 1px solid ${(props) => props.theme.color.main};
   border-radius: 5px;
   padding: 0.5em;
   font-size: 0.7em;
   font-weight: bold;
-  color: var(--bold-elements-color);
+  color: ${(props) => props.theme.color.boldColor};
 `;

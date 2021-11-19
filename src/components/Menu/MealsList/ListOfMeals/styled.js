@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 export const UlWrapper = styled.div`
   display: block;
-  margin: 7em 8em 1em 8em;
+  margin: 3em 8em 5em 8em;
   padding: 0.1em;
-  background: var(--white-background-color);
+  background: ${(props) => props.theme.color.normal};
   border-radius: 1em;
 
   @media (max-width: 600px) {
-    margin: 2em;
+    margin: 1em;
   }
 `;
 
 export const FeedBack = styled.p`
   text-align: center;
-  color: var(--error-color);
+  color: ${(props) => props.theme.color.errorColor};
 `;

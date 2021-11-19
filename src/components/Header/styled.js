@@ -8,15 +8,23 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000000;
+  background-color: ${(props) => props.theme.color.navBackground};
   z-index: 1;
 `;
 
+export const IconsSection = styled.section`
+  display: flex;
+`;
+
 export const H1 = styled.h1`
-  font-size: 20px;
+  font-size: ${(props) => props.theme.font.large};
   margin-left: 1em;
   font-weight: 900;
-  color: tomato;
+  color: ${(props) => props.theme.color.main};
+
+  @media (max-width: 600px) {
+    font-size: ${(props) => props.theme.font.small};
+  }
 `;
 
 export const ImgSection = styled.section`

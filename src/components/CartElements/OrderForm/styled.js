@@ -13,7 +13,7 @@ export const InputContainer = styled.section`
   animation: ${AnimationShow} 1s;
 
   @media (max-width: 600px) {
-    font-size: 12px;
+    font-size: ${(props) => props.theme.font.extraSmall};
   }
 `;
 
@@ -31,8 +31,8 @@ export const Input = styled.input`
 `;
 
 export const ErrorMsg = styled.p`
-  color: var(--error-color);
-  font-size: 12px;
+  color: ${(props) => props.theme.color.errorColor};
+  font-size: ${(props) => props.theme.font.extraSmall};
   text-align: end;
   margin: 0 3em 0 0;
 
@@ -49,9 +49,9 @@ export const ButtonContainer = styled.section`
 
 export const SubmitButton = styled(BoxButtonBrown)`
   &:disabled {
-    background-color: var(--submit-button-color);
-    color: var(--black-font-color);
-    border-color: var(--submit-button-color);
+    background-color: ${(props) => props.theme.color.submitButtonColor};
+    color: black;
+    border-color: ${(props) => props.theme.color.submitButtonColor};
     cursor: not-allowed;
   }
 `;

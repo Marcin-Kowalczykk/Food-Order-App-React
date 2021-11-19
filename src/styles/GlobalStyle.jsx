@@ -63,10 +63,11 @@ table {
 * {
   font-family: "Open Sans", sans-serif;
 }
+
 body {
     margin: 0;
     padding: 0;
-    background: var(--main-background-color);
+    background: ${(props) => props.theme.color.background};
   }
 `;
 

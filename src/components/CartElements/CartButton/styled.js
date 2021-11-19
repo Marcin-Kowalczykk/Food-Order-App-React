@@ -12,7 +12,7 @@ export const CartBtn = styled(BoxButtonBrown)`
 
 export const Quantity = styled.div`
   border-radius: 10px;
-  background-color: tomato;
+  background-color: ${(props) => props.theme.color.main};
   width: 1.5rem;
   padding: 0.1rem;
 `;

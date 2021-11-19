@@ -15,6 +15,7 @@ export const ContentWrapper = styled(BoxWrapper)`
   max-width: 35em;
   z-index: 25;
   animation: ${AnimationShow} 1s;
+  background: ${(props) => props.theme.color.normal};
 
   @media (max-width: 600px) {
     max-height: 35em;

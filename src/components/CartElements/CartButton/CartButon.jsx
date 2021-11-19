@@ -4,7 +4,7 @@ import { CartBtn, Quantity } from '.';
 
 import CartContext from '../../../store/CartContext';
 
-const CartButton = ({ onShowModalHandler }) => {
+const CartButton = ({ onShowModal }) => {
   const cartCtx = useContext(CartContext);
 
   const quantityOfCartItems = cartCtx.items.reduce((a, b) => {
@@ -13,7 +13,7 @@ const CartButton = ({ onShowModalHandler }) => {
 
   return (
     <Fragment>
-      <CartBtn onClick={onShowModalHandler}>
+      <CartBtn onClick={onShowModal}>
         <div>
           <i className="fas fa-shopping-cart"></i>
         </div>
