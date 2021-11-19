@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import Shadow from './Shadow';
-import Cart from '../../Cart/Cart';
+import Cart from '../../CartElements/Cart';
 
 const ModalCart = ({ onHideModalHandler }) => {
   const portal = document.getElementById('modal-root');

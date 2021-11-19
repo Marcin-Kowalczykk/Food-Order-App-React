@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import BoxButtonBrown from '../../../Ui/BoxButtonBrown';
-import BoxInputMeals from '../../../Ui/BoxInputMeals';
-import { MealFormWrapper } from '../../../../styled/MealForm-styled';
+import BoxButtonBrown from '../../../../Ui/BoxButtonBrown';
+import BoxInputMeals from '../../../../Ui/BoxInputMeals';
+import { MealFormWrapper } from '.';
 
 const MealForm = ({ id, onAddItem }) => {
   const [inputAmountState, setInputAmountState] = useState(1);

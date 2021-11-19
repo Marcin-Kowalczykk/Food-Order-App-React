@@ -1,16 +1,10 @@
 import React from 'react';
 
-import BoxColumnWrapper from '../Ui/BoxColumnWrapper';
-import {
-  InputContainer,
-  Input,
-  ErrorMsg,
-  ButtonContainer,
-  SubmitButton,
-} from '../../styled/OrderForm-styled';
+import BoxColumnWrapper from '../../Layout/BoxColumnWrapper';
+import { InputContainer, Input, ErrorMsg, ButtonContainer, SubmitButton } from '.';
 
 // import useValidationReducer from '../../hooks/use-validation-reducer';
-import useValidation from '../../hooks/use-validation';
+import useValidation from '../../../hooks/use-validation';
 
 const hasNumber = /\d/; // for checking do input contain numbers
 
@@ -84,8 +78,6 @@ const OrderForm = ({ onAddNewOrder }) => {
       };
 
       onAddNewOrder(userData);
-
-      console.log('form is subbmited');
 
       clearInputName();
       clearInputAdress();

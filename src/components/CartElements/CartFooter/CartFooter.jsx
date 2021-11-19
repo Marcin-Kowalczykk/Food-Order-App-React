@@ -1,19 +1,13 @@
 import React, { Fragment, useContext, useState } from 'react';
 
-import BoxButtonBrown from '../Ui/BoxButtonBrown';
-import {
-  AmountSection,
-  ButtonsArea,
-  CloseButton,
-  FeedBack,
-  ErrorMsg,
-} from '../../styled/Footer-styled';
+import BoxButtonBrown from '../../Ui/BoxButtonBrown';
+import { AmountSection, ButtonsArea, CloseButton, FeedBack, ErrorMsg } from '.';
 
-import OrderForm from './OrderForm';
+import OrderForm from '../OrderForm';
 
-import { USER_ORDER } from '../../api/ApiLinks';
+import { USER_ORDER } from '../../../api/ApiLinks';
 
-import CartContext from '../../store/CartContext';
+import CartContext from '../../../store/CartContext';
 
 const Footer = ({ onHideModalHandler }) => {
   const cartCtx = useContext(CartContext);

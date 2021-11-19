@@ -8,7 +8,7 @@ export const UlWrapper = styled.div`
   border-radius: 1em;
 
   @media (max-width: 600px) {
-    margin: 7em 2em 1em 2em;
+    margin: 2em;
   }
 `;
 

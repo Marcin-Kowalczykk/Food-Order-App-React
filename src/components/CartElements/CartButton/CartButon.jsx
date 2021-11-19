@@ -1,24 +1,8 @@
 import React, { Fragment, useContext } from 'react';
 
-import styled from 'styled-components';
-import BoxButtonBrown from '../Ui/BoxButtonBrown';
+import { CartBtn, Quantity } from '.';
 
-import CartContext from '../../store/CartContext';
-
-const CartBtn = styled(BoxButtonBrown)`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 9rem;
-  margin: 1rem;
-`;
-
-const Quantity = styled.div`
-  border-radius: 10px;
-  background-color: tomato;
-  width: 1.5rem;
-  padding: 0.1rem;
-`;
+import CartContext from '../../../store/CartContext';
 
 const CartButton = ({ onShowModalHandler }) => {
   const cartCtx = useContext(CartContext);

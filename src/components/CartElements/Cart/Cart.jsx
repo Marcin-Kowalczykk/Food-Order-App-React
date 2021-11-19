@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
-import { ContentWrapper, Ul } from '../../styled/Cart-styled';
+import { ContentWrapper, Ul } from '.';
 
-import Footer from './Footer';
-import CartElement from './CartElement';
-import CartContext from '../../store/CartContext';
+import CartFooter from '../CartFooter';
+import CartElement from '../CartElement';
+import CartContext from '../../../store/CartContext';
 
 const Cart = ({ onHideModalHandler }) => {
   const cartCtx = useContext(CartContext);
@@ -34,7 +34,7 @@ const Cart = ({ onHideModalHandler }) => {
           );
         })}
       </Ul>
-      <Footer onHideModalHandler={onHideModalHandler} />
+      <CartFooter onHideModalHandler={onHideModalHandler} />
     </ContentWrapper>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import BoxBoldText from '../Ui/BoxBoldText';
-import BoxButtonWhite from '../Ui/BoxButtonWhite';
-import BoxColumnWrapper from '../Ui/BoxColumnWrapper';
-import { Price, Section, AmountSection, Li } from '../../styled/CartElement-styled';
+import BoxBoldText from '../../Ui/BoxBoldText';
+import BoxButtonWhite from '../../Ui/BoxButtonWhite';
+import BoxColumnWrapper from '../../Layout/BoxColumnWrapper';
+import { Price, Section, AmountSection, Li } from '.';
 
 const CartElement = ({ title, price, amount, onAdd, onRemove }) => {
   return (

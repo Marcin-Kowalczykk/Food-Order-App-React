@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import BoxButtonBrown from '../components/Ui/BoxButtonBrown';
+import BoxButtonBrown from '../../Ui/BoxButtonBrown';
 
 const AnimationShow = keyframes`
     from {opacity: 0;}

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
-import BoxBoldText from '../../../Ui/BoxBoldText';
-import BoxColumnWrapper from '../../../Ui/BoxColumnWrapper';
-import { Description, Li } from '../../../../styled/ListElemMeal-styled';
+import BoxBoldText from '../../../../Ui/BoxBoldText';
+import BoxColumnWrapper from '../../../../Layout/BoxColumnWrapper';
+import { Description, Li } from '.';
 
-import MealForm from './MealForm';
+import MealForm from '../MealForm';
 
-import CartContext from '../../../../store/CartContext';
+import CartContext from '../../../../../store/CartContext';
 
 const ListElemMeal = ({ title, desc, price, id }) => {
   const cartCtx = useContext(CartContext);

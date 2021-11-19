@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 import BoxBoldText from './BoxBoldText';
-import BoxColumnWrapper from './BoxColumnWrapper';
+import BoxColumnWrapper from '../Layout/BoxColumnWrapper';
 
 const Label = styled(BoxBoldText)`
   margin-left: 0.5em;

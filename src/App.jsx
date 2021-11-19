@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import GlobalStyle from './components/Ui/GlobalStyle';
+import GlobalStyle from './styles/GlobalStyle';
 
-import Header from './components/Layout/Header';
-import ListOfMeals from './components/Menu/MealsList/ListOfMeals';
+import Header from './components/Header/Header';
+import ListOfMeals from './components/Menu/MealsList/ListOfMeals/ListOfMeals';
 import ModalCart from './components/Ui/Modal/ModalCart';
 
 import CartProvider from './store/CartProvider';

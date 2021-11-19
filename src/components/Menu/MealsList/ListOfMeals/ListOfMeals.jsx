@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
 
-import ListElemMeal from './ListElement/ListElemMeal';
-import { MEALS_FROM_FIREBASE } from '../../../api/ApiLinks';
+import ListElemMeal from '../ListElement/ListElemMeal/ListElemMeal';
+import { MEALS_FROM_FIREBASE } from '../../../../api/ApiLinks';
 
-import { UlWrapper, FeedBack } from '../../../styled/ListOfMeals-styled';
+import { UlWrapper, FeedBack } from '.';
 
 const ListOfMeals = () => {
   const [mealsArray, setMealsArray] = useState([]);
@@ -39,7 +39,6 @@ const ListOfMeals = () => {
     }
 
     setIsLoading(false);
-    console.log('runnig');
   }, []);
 
   useEffect(() => {

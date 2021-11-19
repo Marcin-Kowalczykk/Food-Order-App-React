@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BoxButtonWhite from '../components/Ui/BoxButtonWhite';
+import BoxButtonWhite from '../../Ui/BoxButtonWhite';
 
 export const AmountSection = styled.section`
   display: flex;

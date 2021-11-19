@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BoxColumnWrapper from '../components/Ui/BoxColumnWrapper';
+import BoxColumnWrapper from '../../../../Layout/BoxColumnWrapper';
 
 export const MealFormWrapper = styled(BoxColumnWrapper)`
   align-items: center;

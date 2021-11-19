@@ -6,11 +6,11 @@ export const Li = styled.li`
   align-items: center;
   background-color: var(--white-background-color);
   border-bottom: 2px solid tomato;
-  margin: 0 3em 1em 0;
+  margin: 1em;
 
   @media (max-width: 600px) {
     font-size: 12px;
-    margin: 0 1em 1em -2em;
+    margin: 1em;
   }
 `;
 

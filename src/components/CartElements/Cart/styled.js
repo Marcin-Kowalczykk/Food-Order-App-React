@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import BoxWrapper from '../components/Ui/BoxWrapper';
+import BoxWrapper from '../../Layout/BoxWrapper';
 
 const AnimationShow = keyframes`
     from {top: -300px;}
