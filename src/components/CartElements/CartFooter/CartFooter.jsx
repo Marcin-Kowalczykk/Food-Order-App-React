@@ -2,7 +2,15 @@ import React, { Fragment, useContext, useState } from 'react';
 
 // import BoxButtonBrown from '../../Ui/BoxButtonBrown';
 import BoxButton from '../../Ui/BoxButton';
-import { AmountSection, ButtonsArea, CloseButton, FeedBack, ErrorMsg } from '.';
+import {
+  AmountSection,
+  ButtonsArea,
+  CloseButton,
+  FeedBack,
+  ErrorMsg,
+  LoadingArea,
+} from '.';
+import LoadingSpinner from '../../Ui/LoadingSpinner';
 
 import OrderForm from '../OrderForm';
 
@@ -76,7 +84,9 @@ const Footer = ({ onHideModalHandler }) => {
     <Fragment>
       <FeedBack>Thank you for order !</FeedBack>
       <ButtonsArea>
-        <CloseButton onClick={onHideModalHandler}>Close</CloseButton>
+        <CloseButton variant={'brown'} onClick={onHideModalHandler}>
+          Close
+        </CloseButton>
       </ButtonsArea>
     </Fragment>
   );
@@ -87,7 +97,11 @@ const Footer = ({ onHideModalHandler }) => {
         <span>{totalPrice}</span>
       </AmountSection>
       {errorMsg && <ErrorMsg>{errorMsg}</ErrorMsg>}
-      {isLoading && <FeedBack>Sending Your Order ...</FeedBack>}
+      {isLoading && (
+        <LoadingArea>
+          <LoadingSpinner />
+        </LoadingArea>
+      )}
       {isClicked && !isSent && <OrderForm onAddNewOrder={addNewOrderHandler} />}
       {!isClicked && buttons}
     </Fragment>

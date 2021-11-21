@@ -1,2 +1,2 @@
 export { default } from './ListOfMeals';
-export { UlWrapper, FeedBack } from './styled';
+export { UlWrapper, FeedBack, LoadingArea } from './styled';

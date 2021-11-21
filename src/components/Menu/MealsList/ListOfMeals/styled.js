@@ -16,3 +16,8 @@ export const FeedBack = styled.p`
   text-align: center;
   color: ${(props) => props.theme.color.errorColor};
 `;
+
+export const LoadingArea = styled.div`
+  text-align: center;
+  margin-bottom: 1em;
+`;

@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, Fragment } from 'react';
 
 import ListElemMeal from '../ListElement/ListElemMeal/ListElemMeal';
 import { MEALS_FROM_FIREBASE } from '../../../../api/ApiLinks';
 
-import { UlWrapper, FeedBack } from '.';
+import LoadingSpinner from '../../../Ui/LoadingSpinner';
+
+import { UlWrapper, FeedBack, LoadingArea } from '.';
 
 const ListOfMeals = () => {
   const [mealsArray, setMealsArray] = useState([]);
@@ -46,23 +48,29 @@ const ListOfMeals = () => {
   }, [fetchMealsFromFireBase]);
 
   return (
-    <UlWrapper>
-      {errorMsg && <FeedBack>{errorMsg}</FeedBack>}
-      {isLoading && <FeedBack>Loading ... </FeedBack>}
-      <ul>
-        {mealsArray.map((element) => {
-          return (
-            <ListElemMeal
-              key={element.id}
-              id={element.id}
-              title={element.title}
-              desc={element.desc}
-              price={element.price}
-            />
-          );
-        })}
-      </ul>
-    </UlWrapper>
+    <Fragment>
+      {isLoading && (
+        <LoadingArea>
+          <LoadingSpinner />
+        </LoadingArea>
+      )}
+      <UlWrapper>
+        {errorMsg && <FeedBack>{errorMsg}</FeedBack>}
+        <ul>
+          {mealsArray.map((element) => {
+            return (
+              <ListElemMeal
+                key={element.id}
+                id={element.id}
+                title={element.title}
+                desc={element.desc}
+                price={element.price}
+              />
+            );
+          })}
+        </ul>
+      </UlWrapper>
+    </Fragment>
   );
 };
 

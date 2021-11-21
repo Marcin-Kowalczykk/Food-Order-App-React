@@ -32,6 +32,11 @@ export const ErrorMsg = styled.p`
 `;
 
 export const FeedBack = styled.p`
+  margin-top: 1em;
   color: ${(props) => props.theme.color.main};
+  text-align: center;
+`;
+
+export const LoadingArea = styled.div`
   text-align: center;
 `;

@@ -5,8 +5,8 @@ import GlobalStyle from './styles/GlobalStyle';
 import Header from './components/Header/Header';
 import ListOfMeals from './components/Menu/MealsList/ListOfMeals/ListOfMeals';
 import ModalCart from './components/Ui/Modal/ModalCart';
-import { themeDark, themeLight } from './styles/theme';
 
+import { themeDark, themeLight } from './styles/theme';
 import CartProvider from './store/CartProvider';
 import { ThemeProvider } from 'styled-components';
 
