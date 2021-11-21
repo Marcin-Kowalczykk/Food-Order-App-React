@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BoxBoldText from '../../Ui/BoxBoldText';
-import BoxButtonWhite from '../../Ui/BoxButtonWhite';
+import BoxButton from '../../Ui/BoxButton';
 import BoxColumnWrapper from '../../Layout/BoxColumnWrapper';
 import { Price, Section, AmountSection, Li } from '.';
 
@@ -17,8 +17,12 @@ const CartElement = ({ title, price, amount, onAdd, onRemove }) => {
         <AmountSection>{amount}</AmountSection>
       </Section>
       <Section>
-        <BoxButtonWhite onClick={onRemove}>-</BoxButtonWhite>
-        <BoxButtonWhite onClick={onAdd}>+</BoxButtonWhite>
+        <BoxButton variant={'white'} onClick={onRemove}>
+          -
+        </BoxButton>
+        <BoxButton variant={'white'} onClick={onAdd}>
+          +
+        </BoxButton>
       </Section>
     </Li>
   );

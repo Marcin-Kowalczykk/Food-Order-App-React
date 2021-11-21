@@ -149,7 +149,11 @@ const OrderForm = ({ onAddNewOrder }) => {
           <ErrorMsg>Phone number must contain 9 numbers</ErrorMsg>
         )}
         <ButtonContainer>
-          <SubmitButton disabled={!formIsValid} onClick={submitFormHandler}>
+          <SubmitButton
+            variant={'brown'}
+            disabled={!formIsValid}
+            onClick={submitFormHandler}
+          >
             Submit
           </SubmitButton>
         </ButtonContainer>

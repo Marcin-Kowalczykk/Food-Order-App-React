@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import BoxButtonBrown from '../../Ui/BoxButtonBrown';
+import BoxButton from '../../Ui/BoxButton';
 
 const AnimationShow = keyframes`
     from {opacity: 0;}
@@ -47,7 +47,7 @@ export const ButtonContainer = styled.section`
   animation: ${AnimationShow} 1s;
 `;
 
-export const SubmitButton = styled(BoxButtonBrown)`
+export const SubmitButton = styled(BoxButton)`
   &:disabled {
     background-color: ${(props) => props.theme.color.submitButtonColor};
     color: black;

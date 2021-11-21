@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useState } from 'react';
 
-import BoxButtonBrown from '../../Ui/BoxButtonBrown';
+// import BoxButtonBrown from '../../Ui/BoxButtonBrown';
+import BoxButton from '../../Ui/BoxButton';
 import { AmountSection, ButtonsArea, CloseButton, FeedBack, ErrorMsg } from '.';
 
 import OrderForm from '../OrderForm';
@@ -57,14 +58,17 @@ const Footer = ({ onHideModalHandler }) => {
 
   const buttons = (
     <ButtonsArea>
-      <CloseButton onClick={onHideModalHandler}>Close</CloseButton>
-      <BoxButtonBrown
+      <CloseButton variant={'white'} onClick={onHideModalHandler}>
+        Close
+      </CloseButton>
+      <BoxButton
+        variant={'brown'}
         onClick={() => {
           setIsClicked(true);
         }}
       >
         Order
-      </BoxButtonBrown>
+      </BoxButton>
     </ButtonsArea>
   );
 

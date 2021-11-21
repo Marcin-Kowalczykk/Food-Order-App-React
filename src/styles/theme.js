@@ -7,6 +7,11 @@ export const themeDark = {
     boldColor: '#c72d12',
     errorColor: 'red',
     submitButtonColor: '#ccc',
+    darkButtonColor: '#5f3028',
+    darkButtonColorHover: '#ad3824',
+    lightButtonColor: 'white',
+    lightButtonColorHover: '#b6b6b66f',
+    fontColor: 'white',
   },
   font: {
     extraSmall10: '10px',
@@ -26,6 +31,11 @@ export const themeLight = {
     boldColor: '#c72d12',
     errorColor: 'red',
     submitButtonColor: '#ccc',
+    darkButtonColor: '#5f3028',
+    darkButtonColorHover: '#ad3824',
+    lightButtonColor: 'white',
+    lightButtonColorHover: '#b6b6b66f',
+    fontColor: 'black',
   },
   font: {
     extraSmall10: '10px',

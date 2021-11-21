@@ -17,8 +17,8 @@ const Input = styled.input`
   outline: none;
   border: none;
   border-radius: 5px;
-  background: var(--tomato-elements-color);
-  color: var(--white-font-color);
+  background: ${(props) => props.theme.color.main};
+  color: white;
   font-weight: bold;
   text-align: center;
   cursor: pointer;

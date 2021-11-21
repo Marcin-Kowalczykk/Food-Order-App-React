@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import BoxButtonBrown from '../../Ui/BoxButtonBrown';
+import BoxButton from '../../Ui/BoxButton';
 
-export const CartBtn = styled(BoxButtonBrown)`
+export const CartBtn = styled(BoxButton)`
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import BoxButtonBrown from '../../../../Ui/BoxButtonBrown';
+import BoxButton from '../../../../Ui/BoxButton';
 import BoxInputMeals from '../../../../Ui/BoxInputMeals';
 import { MealFormWrapper } from '.';
 
@@ -40,7 +40,9 @@ const MealForm = ({ id, onAddItem }) => {
             onChange: inputAmountHandler,
           }}
         />
-        <BoxButtonBrown onClick={submitFormHandler}>Add</BoxButtonBrown>
+        <BoxButton variant={'brown'} onClick={submitFormHandler}>
+          Add
+        </BoxButton>
         {!isFormValid && <p>Amount have to be between 1-5</p>}
       </MealFormWrapper>
     </form>

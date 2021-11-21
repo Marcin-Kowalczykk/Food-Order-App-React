@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BoxButtonWhite from '../../Ui/BoxButtonWhite';
+import BoxButton from '../../Ui/BoxButton';
 
 export const AmountSection = styled.section`
   display: flex;
@@ -19,7 +19,7 @@ export const ButtonsArea = styled.section`
   margin: 1em;
 `;
 
-export const CloseButton = styled(BoxButtonWhite)`
+export const CloseButton = styled(BoxButton)`
   margin-right: 5px;
   width: 5rem;
   border-radius: 20px;

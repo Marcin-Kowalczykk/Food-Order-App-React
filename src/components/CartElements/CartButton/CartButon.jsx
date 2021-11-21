@@ -13,7 +13,7 @@ const CartButton = ({ onShowModal }) => {
 
   return (
     <Fragment>
-      <CartBtn onClick={onShowModal}>
+      <CartBtn variant={'brown'} onClick={onShowModal}>
         <div>
           <i className="fas fa-shopping-cart"></i>
         </div>
