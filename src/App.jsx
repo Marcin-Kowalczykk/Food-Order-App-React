@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from './styles/GlobalStyle';
-
+//pages
+import SignInPage from './pages/Auth/SignInPage';
+import SignUpPage from './pages/Auth/SignUpPage';
+import MainPage from './pages/MainPage';
+//components
 import Header from './components/Header/Header';
-import ListOfMeals from './components/Menu/MealsList/ListOfMeals/ListOfMeals';
 import ModalCart from './components/Ui/Modal/ModalCart';
 
 import { themeDark, themeLight } from './styles/theme';
@@ -35,7 +39,17 @@ function App() {
           }}
           onToggleTheme={toggleThemeHandler}
         />
-        <ListOfMeals />
+        <Routes>
+          <Route
+            path="/Food-Order-App-React/auth-sign-in"
+            element={<SignInPage />}
+          />
+          <Route
+            path="/Food-Order-App-React/auth-sign-up"
+            element={<SignUpPage />}
+          />
+          <Route path="/Food-Order-App-React/main" exact element={<MainPage />} />
+        </Routes>
       </ThemeProvider>
     </CartProvider>
   );

@@ -17,7 +17,6 @@ const CartButton = ({ onShowModal }) => {
         <div>
           <i className="fas fa-shopping-cart"></i>
         </div>
-        <div>Cart</div>
         <Quantity>{quantityOfCartItems}</Quantity>
       </CartBtn>
     </Fragment>

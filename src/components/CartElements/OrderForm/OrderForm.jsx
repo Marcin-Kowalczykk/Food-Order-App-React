@@ -9,12 +9,23 @@ import useValidation from '../../../hooks/use-validation';
 const hasNumber = /\d/; // for checking do input contain numbers
 
 const isNameValid = (inputValue) =>
-  inputValue.trim() !== '' && inputValue.length > 2;
+  inputValue.trim() !== '' && inputValue.length > 2 && !inputValue.includes(' ');
+
 const isAdressValid = (inputValue) =>
-  inputValue.trim() !== '' && inputValue.length > 3 && hasNumber.test(inputValue);
-const isZipValid = (inputValue) =>
-  inputValue.length == 6 && inputValue.includes('-') && hasNumber.test(inputValue);
-const isPhoneValid = (inputValue) => inputValue.length == 9;
+  inputValue.trim() !== '' &&
+  inputValue.trim().length > 3 &&
+  hasNumber.test(inputValue) &&
+  !inputValue.includes(' ');
+
+const isZipValid = (inputValue) => {
+  const zipRegExp = /^([0-9]{2})(-[0-9]{3})?$/i;
+  return zipRegExp.test(inputValue);
+};
+
+const isPhoneValid = (inputValue) => {
+  const phoneRegExp = /^([0-9]{3})( [0-9]{3})( [0-9]{3})?$/i;
+  return phoneRegExp.test(inputValue);
+};
 
 const OrderForm = ({ onAddNewOrder }) => {
   const {
@@ -117,7 +128,7 @@ const OrderForm = ({ onAddNewOrder }) => {
         </InputContainer>
         {inputAdressHasError && (
           <ErrorMsg>
-            Adress must be longer than 4 letters and must have number
+            Adress must be longer than 3 letters and must contain number
           </ErrorMsg>
         )}
         <InputContainer>
@@ -139,14 +150,14 @@ const OrderForm = ({ onAddNewOrder }) => {
             error={inputPhoneHasError}
             type="tel"
             id="telephone"
-            placeholder="xxx-xxx-xxx"
+            placeholder="xxx xxx xxx"
             onChange={onChangeInputPhoneHandler}
             onBlur={onBlurInputPhoneHandler}
             value={inputPhoneValue}
           />
         </InputContainer>
         {inputPhoneHasError && (
-          <ErrorMsg>Phone number must contain 9 numbers</ErrorMsg>
+          <ErrorMsg>Phone number must contain 9 numbers (xxx xxx xxx)</ErrorMsg>
         )}
         <ButtonContainer>
           <SubmitButton

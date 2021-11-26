@@ -6,13 +6,13 @@ export const CartBtn = styled(BoxButton)`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 9rem;
-  margin: 1rem;
+  width: 5em;
+  margin: 1em;
 `;
 
 export const Quantity = styled.div`
   border-radius: 10px;
   background-color: ${(props) => props.theme.color.main};
-  width: 1.5rem;
-  padding: 0.1rem;
+  width: 1.5em;
+  padding: 0.1em;
 `;
