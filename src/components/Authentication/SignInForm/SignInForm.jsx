@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
 import BoxButton from '../../Ui/BoxButton';
+import LoadingSpinner from '../../Ui/LoadingSpinner';
+
+import { SIGN_IN } from '../../../api/ApiLinks';
+import { SIGN_UP_LINK } from '../../../Links';
+import { MAIN_PAGE_LINK } from '../../../Links';
+
+import useSigns from '../../../hooks/use-signs';
 
 import {
   Wrapper,
@@ -10,17 +17,25 @@ import {
   Header,
   CreateAccText,
   StyledLink,
+  ErrorMsg,
+  FeedBack,
 } from '.';
 
 const SignInForm = () => {
   const [emailInputValue, setEmailInputValue] = useState('');
   const [passInputValue, setPassInputValue] = useState('');
 
+  const {
+    isLoading: isLoading,
+    errorMsg: errorMsg,
+    feedBack: feedBack,
+    signUserRequest: signUpUserRequest,
+  } = useSigns(SIGN_IN, emailInputValue, passInputValue, MAIN_PAGE_LINK);
+
   const submitFormHandler = (event) => {
     event.preventDefault();
 
-    console.log(emailInputValue);
-    console.log(passInputValue);
+    signUpUserRequest();
 
     setEmailInputValue('');
     setPassInputValue('');
@@ -51,13 +66,16 @@ const SignInForm = () => {
           />
         </Section>
         <Section>
-          <BoxButton type="submit" variant={'brown'} onClick={submitFormHandler}>
-            login
-          </BoxButton>
+          {errorMsg && !feedBack && <ErrorMsg>Error: {errorMsg} !</ErrorMsg>}
+          {feedBack && !errorMsg && <FeedBack>{feedBack}</FeedBack>}
+          {isLoading && <LoadingSpinner />}
+          {!isLoading && (
+            <BoxButton type="submit" variant={'brown'} onClick={submitFormHandler}>
+              Login
+            </BoxButton>
+          )}
           <CreateAccText>
-            <StyledLink to="/Food-Order-App-React/auth-sign-up">
-              Create new account !
-            </StyledLink>
+            <StyledLink to={SIGN_UP_LINK}>Create new account !</StyledLink>
           </CreateAccText>
         </Section>
       </Wrapper>

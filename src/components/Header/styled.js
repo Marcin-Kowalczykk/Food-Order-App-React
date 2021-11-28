@@ -23,13 +23,13 @@ export const IconsSection = styled.section`
 export const StyledLink = styled(NavLink)`
   color: ${(props) => props.theme.color.main};
   text-decoration: none;
-  &.active,
+  /* &.active,
   &:visited {
     border-bottom: 2px solid ${(props) => props.theme.color.main};
-  }
+  } */
   &:focus {
     outline: none;
-    border-bottom: 1px solid ${(props) => props.theme.color.main};
+    border-bottom: 2px solid ${(props) => props.theme.color.main};
   }
 `;
 
@@ -61,7 +61,7 @@ export const Img = styled.img`
   transform: rotateZ(-4deg) translateY(-4rem) translateX(-1rem);
 `;
 
-export const LoginButton = styled(BoxButton)`
+export const LogButton = styled(BoxButton)`
   width: 4em;
   padding: 0;
   margin: 1em 0 1em 0;

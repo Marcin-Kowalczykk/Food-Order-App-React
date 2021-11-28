@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from './styles/GlobalStyle';
-//pages
+
 import SignInPage from './pages/Auth/SignInPage';
 import SignUpPage from './pages/Auth/SignUpPage';
 import MainPage from './pages/MainPage';
-//components
+
 import Header from './components/Header/Header';
 import ModalCart from './components/Ui/Modal/ModalCart';
 
 import { themeDark, themeLight } from './styles/theme';
-import CartProvider from './store/CartProvider';
 import { ThemeProvider } from 'styled-components';
+import CartProvider from './store/CartProvider';
+import AuthProvider from './store/AuthProvider';
+
+import { MAIN_PAGE_LINK } from './Links';
+import { SIGN_IN_LINK } from './Links';
+import { SIGN_UP_LINK } from './Links';
 
 function App() {
   const [modalState, setModalState] = useState(false);
@@ -23,35 +28,31 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      <ThemeProvider theme={toggleTheme ? themeLight : themeDark}>
-        <GlobalStyle />
-        {modalState && (
-          <ModalCart
-            onHideModalHandler={() => {
-              setModalState(false);
+    <AuthProvider>
+      <CartProvider>
+        <ThemeProvider theme={toggleTheme ? themeLight : themeDark}>
+          <GlobalStyle />
+          {modalState && (
+            <ModalCart
+              onHideModalHandler={() => {
+                setModalState(false);
+              }}
+            />
+          )}
+          <Header
+            onShowModal={() => {
+              setModalState(true);
             }}
+            onToggleTheme={toggleThemeHandler}
           />
-        )}
-        <Header
-          onShowModal={() => {
-            setModalState(true);
-          }}
-          onToggleTheme={toggleThemeHandler}
-        />
-        <Routes>
-          <Route
-            path="/Food-Order-App-React/auth-sign-in"
-            element={<SignInPage />}
-          />
-          <Route
-            path="/Food-Order-App-React/auth-sign-up"
-            element={<SignUpPage />}
-          />
-          <Route path="/Food-Order-App-React/main" exact element={<MainPage />} />
-        </Routes>
-      </ThemeProvider>
-    </CartProvider>
+          <Routes>
+            <Route path={MAIN_PAGE_LINK} element={<SignInPage />} />
+            <Route path={SIGN_UP_LINK} element={<SignUpPage />} />
+            <Route path={SIGN_IN_LINK} exact element={<MainPage />} />
+          </Routes>
+        </ThemeProvider>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

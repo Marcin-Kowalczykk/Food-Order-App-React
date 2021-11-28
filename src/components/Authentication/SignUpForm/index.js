@@ -5,6 +5,7 @@ export {
   Section,
   Input,
   ErrorMsg,
+  FeedBack,
   Header,
   CreateAccText,
   StyledLink,

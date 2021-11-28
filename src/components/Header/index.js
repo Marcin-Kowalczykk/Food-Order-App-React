@@ -5,7 +5,7 @@ export {
   H1,
   ImgSection,
   Img,
-  LoginButton,
+  LogButton,
   StyledLink,
   StyledLinkButton,
 } from './styled';

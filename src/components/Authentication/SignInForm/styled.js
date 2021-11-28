@@ -74,3 +74,17 @@ export const StyledLink = styled(Link)`
     border-bottom: 1px solid ${(props) => props.theme.color.main};
   }
 `;
+
+export const ErrorMsg = styled.p`
+  color: ${(props) => props.theme.color.errorColor};
+  font-size: ${(props) => props.theme.font.extraSmall10};
+  text-align: center;
+  margin: 0.5em 0 1em 0;
+`;
+
+export const FeedBack = styled.p`
+  color: ${(props) => props.theme.color.main};
+  font-size: ${(props) => props.theme.font.extraSmall};
+  text-align: center;
+  margin: 0.5em 0 0.4em 0;
+`;

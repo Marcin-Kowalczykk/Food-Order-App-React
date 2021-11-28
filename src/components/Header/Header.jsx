@@ -1,8 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 
 import CartButton from '../CartElements/CartButton';
 import Description from '../Description/Description';
 import ThemeSwitch from '../Ui/ThemeSwitch';
+
+import AuthContext from '../../store/AuthContext';
+
+import { MAIN_PAGE_LINK } from '../../Links';
+import { SIGN_IN_LINK } from '../../Links';
+import { RESTAURANT_IMAGE } from '../../Links';
 
 import {
   Nav,
@@ -10,33 +16,39 @@ import {
   H1,
   ImgSection,
   Img,
-  LoginButton,
+  LogButton,
   StyledLink,
   StyledLinkButton,
 } from '.';
 
 const Header = ({ onShowModal, onToggleTheme }) => {
+  const authCtx = useContext(AuthContext);
+
+  const isLogged = authCtx.token;
+
   return (
     <Fragment>
       <Nav>
         <H1>
-          <StyledLink to="/Food-Order-App-React/main">Food Order App</StyledLink>
+          <StyledLink to={MAIN_PAGE_LINK}>Food Order App</StyledLink>
         </H1>
         <IconsSection>
-          <LoginButton variant={'brown'}>
-            <StyledLinkButton to="/Food-Order-App-React/auth-sign-in">
-              Login
-            </StyledLinkButton>
-          </LoginButton>
+          {!isLogged && (
+            <LogButton variant={'brown'}>
+              <StyledLinkButton to={SIGN_IN_LINK}>Login</StyledLinkButton>
+            </LogButton>
+          )}
+          {isLogged && (
+            <LogButton variant={'brown'} onClick={authCtx.logoutHandler}>
+              Logout
+            </LogButton>
+          )}
           <CartButton onShowModal={onShowModal} />
           <ThemeSwitch onToggleTheme={onToggleTheme} />
         </IconsSection>
       </Nav>
       <ImgSection>
-        <Img
-          src="https://nessarestaurant.com/wp-content/uploads/2018/11/Restaurant-Food.jpg"
-          alt="Restaurant Image"
-        />
+        <Img src={RESTAURANT_IMAGE} alt="Restaurant Image" />
       </ImgSection>
       <Description />
     </Fragment>

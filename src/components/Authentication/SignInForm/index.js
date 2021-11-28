@@ -7,4 +7,6 @@ export {
   Header,
   CreateAccText,
   StyledLink,
+  ErrorMsg,
+  FeedBack,
 } from './styled';

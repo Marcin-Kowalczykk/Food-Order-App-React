@@ -1,6 +1,12 @@
 import React from 'react';
 
 import useValidation from '../../../hooks/use-validation';
+import useSigns from '../../../hooks/use-signs';
+
+import { SIGN_UP } from '../../../api/ApiLinks';
+import { SIGN_IN_LINK } from '../../../Links';
+
+import LoadingSpinner from '../../Ui/LoadingSpinner';
 
 import {
   Wrapper,
@@ -8,6 +14,7 @@ import {
   Section,
   Input,
   ErrorMsg,
+  FeedBack,
   Header,
   CreateAccText,
   StyledLink,
@@ -49,18 +56,24 @@ const SignUpForm = () => {
     formIsValid = true;
   }
 
+  const {
+    isLoading: isLoading,
+    errorMsg: errorMsg,
+    feedBack: feedBack,
+    signUserRequest: signUpUserRequest,
+  } = useSigns(SIGN_UP, emailInputValue, passInputValue);
+
   const submitFormHandler = (event) => {
     event.preventDefault();
 
     if (!formIsValid) {
       return;
     } else {
-      console.log(emailInputValue);
-      console.log(passInputValue);
+      signUpUserRequest();
     }
 
     clearEmailInput();
-    clearPassInput('');
+    clearPassInput();
   };
 
   return (
@@ -98,13 +111,18 @@ const SignUpForm = () => {
           )}
         </Section>
         <Section>
-          <SubmitButton disabled={!formIsValid} type="submit" variant={'brown'}>
-            Sign Up
-          </SubmitButton>
+          {isLoading && <LoadingSpinner />}
+          {feedBack && <FeedBack>{feedBack}</FeedBack>}
+          {errorMsg && emailInputValue.length === 0 && (
+            <ErrorMsg>Error: {errorMsg} try again !</ErrorMsg>
+          )}
+          {!isLoading && (
+            <SubmitButton disabled={!formIsValid} type="submit" variant={'brown'}>
+              Sign Up
+            </SubmitButton>
+          )}
           <CreateAccText>
-            <StyledLink to="/Food-Order-App-React/auth-sign-in">
-              Have account? Go to Login!
-            </StyledLink>
+            <StyledLink to={SIGN_IN_LINK}>Have account? Go to Login!</StyledLink>
           </CreateAccText>
         </Section>
       </Wrapper>

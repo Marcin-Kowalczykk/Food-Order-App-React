@@ -6,16 +6,13 @@ import { InputContainer, Input, ErrorMsg, ButtonContainer, SubmitButton } from '
 // import useValidationReducer from '../../hooks/use-validation-reducer';
 import useValidation from '../../../hooks/use-validation';
 
-const hasNumber = /\d/; // for checking do input contain numbers
-
 const isNameValid = (inputValue) =>
   inputValue.trim() !== '' && inputValue.length > 2 && !inputValue.includes(' ');
 
-const isAdressValid = (inputValue) =>
-  inputValue.trim() !== '' &&
-  inputValue.trim().length > 3 &&
-  hasNumber.test(inputValue) &&
-  !inputValue.includes(' ');
+const isAdressValid = (inputValue) => {
+  const adressRegExp = /^([A-Z]{3,})( [0-9]{1,})?$/i;
+  return adressRegExp.test(inputValue);
+};
 
 const isZipValid = (inputValue) => {
   const zipRegExp = /^([0-9]{2})(-[0-9]{3})?$/i;
@@ -24,7 +21,7 @@ const isZipValid = (inputValue) => {
 
 const isPhoneValid = (inputValue) => {
   const phoneRegExp = /^([0-9]{3})( [0-9]{3})( [0-9]{3})?$/i;
-  return phoneRegExp.test(inputValue);
+  return phoneRegExp.test(inputValue) && inputValue.trim().length > 9;
 };
 
 const OrderForm = ({ onAddNewOrder }) => {
