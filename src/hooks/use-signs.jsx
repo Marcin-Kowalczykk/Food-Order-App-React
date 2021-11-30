@@ -32,6 +32,7 @@ const useSigns = (url, inputMail, inputPass, navigateTo) => {
 
       const data = await response.json();
       const token = data.idToken;
+      const expiresTime = new Date(new Date().getTime() + +data.expiresIn * 1000);
       const dataError = data.error;
 
       setIsLoading(false);
@@ -45,7 +46,7 @@ const useSigns = (url, inputMail, inputPass, navigateTo) => {
         }
         throw new Error(errorMsg);
       } else {
-        const dataToContext = authCtx.loginHandler(token);
+        const dataToContext = authCtx.loginHandler(token, expiresTime.toISOString());
         setFeedBack('Success');
         navigate(navigateTo);
         return dataToContext;

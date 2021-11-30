@@ -46,9 +46,9 @@ function App() {
             onToggleTheme={toggleThemeHandler}
           />
           <Routes>
-            <Route path={MAIN_PAGE_LINK} element={<SignInPage />} />
+            <Route path={SIGN_IN_LINK} element={<SignInPage />} />
             <Route path={SIGN_UP_LINK} element={<SignUpPage />} />
-            <Route path={SIGN_IN_LINK} exact element={<MainPage />} />
+            <Route path={MAIN_PAGE_LINK} exact element={<MainPage />} />
           </Routes>
         </ThemeProvider>
       </CartProvider>
