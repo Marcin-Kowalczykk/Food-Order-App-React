@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const UlWrapper = styled.div`
   display: block;
-  margin: 3em 8em 5em 8em;
+  margin: 4em 8em 5em 8em;
   padding: 0.1em;
   background: ${(props) => props.theme.color.normal};
   border-radius: 1em;
