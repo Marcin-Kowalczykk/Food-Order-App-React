@@ -5,6 +5,7 @@ import useSigns from '../../../hooks/use-signs';
 
 import { SIGN_UP } from '../../../api/ApiLinks';
 import { SIGN_IN_LINK } from '../../../Links';
+import { MAIN_PAGE_LINK } from '../../../Links';
 
 import LoadingSpinner from '../../Ui/LoadingSpinner';
 
@@ -61,7 +62,7 @@ const SignUpForm = () => {
     errorMsg: errorMsg,
     feedBack: feedBack,
     signUserRequest: signUpUserRequest,
-  } = useSigns(SIGN_UP, emailInputValue, passInputValue);
+  } = useSigns(SIGN_UP, emailInputValue, passInputValue, MAIN_PAGE_LINK);
 
   const submitFormHandler = (event) => {
     event.preventDefault();

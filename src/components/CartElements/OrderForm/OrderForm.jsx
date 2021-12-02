@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+
+import AuthContext from '../../../store/AuthContext';
 
 import BoxColumnWrapper from '../../Layout/BoxColumnWrapper';
+import BoxButton from '../../Ui/BoxButton';
 import { InputContainer, Input, ErrorMsg, ButtonContainer, SubmitButton } from '.';
 
 // import useValidationReducer from '../../hooks/use-validation-reducer';
@@ -24,7 +27,18 @@ const isPhoneValid = (inputValue) => {
   return phoneRegExp.test(inputValue) && inputValue.trim().length > 9;
 };
 
-const OrderForm = ({ onAddNewOrder }) => {
+const OrderForm = ({
+  onAddNewOrder,
+  foundName,
+  foundAdress,
+  foundZipCode,
+  foundPhoneNumber,
+  clearAllInputs,
+}) => {
+  const authCtx = useContext(AuthContext);
+
+  const [isClicked, setIsClicked] = useState(false);
+
   const {
     inputValue: inputNameValue,
     isValid: inputNameIsValid,
@@ -64,10 +78,12 @@ const OrderForm = ({ onAddNewOrder }) => {
   let formIsValid = false;
 
   if (
-    inputNameIsValid &&
-    inputAdressIsValid &&
-    inputZipIsValid &&
-    inputPhoneIsValid
+    (authCtx.isUserSignedIn &&
+      foundName &&
+      foundAdress &&
+      foundZipCode &&
+      foundPhoneNumber) ||
+    (inputNameIsValid && inputAdressIsValid && inputZipIsValid && inputPhoneIsValid)
   ) {
     formIsValid = true;
   }
@@ -100,30 +116,32 @@ const OrderForm = ({ onAddNewOrder }) => {
         <InputContainer>
           <label htmlFor="name">Name:</label>
           <Input
-            error={inputNameHasError}
+            error={inputNameHasError && !foundName}
             type="text"
             id="name"
             onChange={onChangeInputNameHandler}
             onBlur={onBlurInputNameHandler}
-            value={inputNameValue}
+            value={authCtx.isUserSignedIn && !isClicked ? foundName : inputNameValue}
           />
         </InputContainer>
-        {inputNameHasError && (
+        {inputNameHasError && !foundName && (
           <ErrorMsg>name must be longer than 2 letters</ErrorMsg>
         )}
         <InputContainer>
           <label htmlFor="adress">Adress:</label>
           <Input
-            error={inputAdressHasError}
+            error={inputAdressHasError && !foundAdress}
             type="text"
             id="adress"
             placeholder="Street Number"
             onChange={onChangeInputAdressHandler}
             onBlur={onBlurInputAdressHandler}
-            value={inputAdressValue}
+            value={
+              authCtx.isUserSignedIn && !isClicked ? foundAdress : inputAdressValue
+            }
           />
         </InputContainer>
-        {inputAdressHasError && (
+        {inputAdressHasError && !foundAdress && (
           <ErrorMsg>
             Adress must be longer than 3 letters and must contain number
           </ErrorMsg>
@@ -131,29 +149,37 @@ const OrderForm = ({ onAddNewOrder }) => {
         <InputContainer>
           <label htmlFor="zip">Post Code:</label>
           <Input
-            error={inputZipHasError}
+            error={inputZipHasError && !foundZipCode}
             type="text"
             id="zip"
             placeholder="xx-xxx"
             onChange={onChangeInputZipHandler}
             onBlur={onBlurInputZipHandler}
-            value={inputZipValue}
+            value={
+              authCtx.isUserSignedIn && !isClicked ? foundZipCode : inputZipValue
+            }
           />
         </InputContainer>
-        {inputZipHasError && <ErrorMsg>Post code must contain 5 numbers</ErrorMsg>}
+        {inputZipHasError && !foundZipCode && (
+          <ErrorMsg>Post code must contain 5 numbers</ErrorMsg>
+        )}
         <InputContainer>
           <label htmlFor="telephone">Telephone:</label>
           <Input
-            error={inputPhoneHasError}
+            error={inputPhoneHasError && !foundPhoneNumber}
             type="tel"
             id="telephone"
             placeholder="xxx xxx xxx"
             onChange={onChangeInputPhoneHandler}
             onBlur={onBlurInputPhoneHandler}
-            value={inputPhoneValue}
+            value={
+              authCtx.isUserSignedIn && foundPhoneNumber
+                ? foundPhoneNumber
+                : inputPhoneValue
+            }
           />
         </InputContainer>
-        {inputPhoneHasError && (
+        {inputPhoneHasError && !foundPhoneNumber && (
           <ErrorMsg>Phone number must contain 9 numbers (xxx xxx xxx)</ErrorMsg>
         )}
         <ButtonContainer>
@@ -164,6 +190,18 @@ const OrderForm = ({ onAddNewOrder }) => {
           >
             Submit
           </SubmitButton>
+          {authCtx.isUserSignedIn && (
+            <BoxButton
+              variant="brown"
+              type="button"
+              onClick={() => {
+                setIsClicked(true);
+                clearAllInputs();
+              }}
+            >
+              Edit
+            </BoxButton>
+          )}
         </ButtonContainer>
       </BoxColumnWrapper>
     </form>

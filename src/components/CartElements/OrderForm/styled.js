@@ -48,6 +48,8 @@ export const ButtonContainer = styled.section`
 `;
 
 export const SubmitButton = styled(BoxButton)`
+  margin-right: 0.5em;
+
   &:disabled {
     background-color: ${(props) => props.theme.color.submitButtonColor};
     color: black;

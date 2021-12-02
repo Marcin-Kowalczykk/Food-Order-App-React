@@ -30,3 +30,7 @@ export const P = styled.p`
     font-size: 8px;
   }
 `;
+
+export const Header = styled.header`
+  margin-bottom: 1em;
+`;

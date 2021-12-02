@@ -32,6 +32,7 @@ const useSigns = (url, inputMail, inputPass, navigateTo) => {
 
       const data = await response.json();
       const token = data.idToken;
+      const localId = data.localId;
       const expiresTime = new Date(new Date().getTime() + +data.expiresIn * 1000);
       const dataError = data.error;
 
@@ -46,10 +47,15 @@ const useSigns = (url, inputMail, inputPass, navigateTo) => {
         }
         throw new Error(errorMsg);
       } else {
-        const dataToContext = authCtx.loginHandler(token, expiresTime.toISOString());
+        const authDataToContext = authCtx.loginHandler(
+          token,
+          expiresTime.toISOString(),
+          localId
+        );
+        const emailToContext = authCtx.dataFromFormHandler(inputMail);
         setFeedBack('Success');
         navigate(navigateTo);
-        return dataToContext;
+        return { authData: authDataToContext, email: emailToContext };
       }
     } catch (error) {
       setErrorMsg(error.message);

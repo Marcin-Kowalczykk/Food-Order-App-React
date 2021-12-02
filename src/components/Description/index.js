@@ -1,2 +1,2 @@
 export { default } from './Description';
-export { DescWrapper, P } from './styled';
+export { DescWrapper, P, Header } from './styled';
