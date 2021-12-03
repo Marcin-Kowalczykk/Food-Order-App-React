@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, Fragment } from 'react';
 
+import Filters from '../../Filters';
 import ListElemMeal from '../ListElement/ListElemMeal/ListElemMeal';
 import { MEALS_FROM_FIREBASE } from '../../../../api/ApiLinks';
 
@@ -9,6 +10,7 @@ import { UlWrapper, FeedBack, LoadingArea } from '.';
 
 const ListOfMeals = () => {
   const [mealsArray, setMealsArray] = useState([]);
+  const [filteredMeals, setFilteredMeals] = useState(mealsArray);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
 
@@ -30,12 +32,14 @@ const ListOfMeals = () => {
       for (const key in data) {
         arrayMealsFromFireBase.push({
           id: key,
+          mealTypeId: data[key].id,
           title: data[key].title,
           desc: data[key].description,
           price: data[key].price,
         });
       }
       setMealsArray(arrayMealsFromFireBase);
+      setFilteredMeals(arrayMealsFromFireBase);
     } catch (err) {
       setErrorMsg(err.message);
     }
@@ -47,6 +51,17 @@ const ListOfMeals = () => {
     fetchMealsFromFireBase();
   }, [fetchMealsFromFireBase]);
 
+  const filterMealsHandler = (param) => {
+    const filteredFishes = mealsArray.filter((element) =>
+      element.mealTypeId.includes(param)
+    );
+    setFilteredMeals(filteredFishes);
+  };
+
+  const showAllMealsHandler = () => {
+    setFilteredMeals(mealsArray);
+  };
+
   return (
     <Fragment>
       {isLoading && (
@@ -54,10 +69,11 @@ const ListOfMeals = () => {
           <LoadingSpinner />
         </LoadingArea>
       )}
+      <Filters filterMeals={filterMealsHandler} showAllMeals={showAllMealsHandler} />
       <UlWrapper>
         {errorMsg && <FeedBack>{errorMsg}</FeedBack>}
         <ul>
-          {mealsArray.map((element) => {
+          {filteredMeals.map((element) => {
             return (
               <ListElemMeal
                 key={element.id}
