@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DescWrapper = styled.section`
   position: absolute;
-  top: 17vh;
+  top: 10vh;
   left: 50%;
   transform: translate(-50%, 50%);
   overflow: hidden;
