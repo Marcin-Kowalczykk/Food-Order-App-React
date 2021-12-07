@@ -1,3 +1,5 @@
+export const HOME_PAGE_LINK = '/Food-Order-App-React/';
+
 export const MAIN_PAGE_LINK = '/Food-Order-App-React/main';
 
 export const SIGN_IN_LINK = '/Food-Order-App-React/auth-sign-in';

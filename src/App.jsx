@@ -15,6 +15,7 @@ import { ThemeProvider } from 'styled-components';
 import CartProvider from './store/CartProvider';
 import AuthProvider from './store/AuthProvider';
 
+import { HOME_PAGE_LINK } from './Links';
 import { MAIN_PAGE_LINK } from './Links';
 import { SIGN_IN_LINK } from './Links';
 import { SIGN_UP_LINK } from './Links';
@@ -46,7 +47,8 @@ function App() {
             onToggleTheme={toggleThemeHandler}
           />
           <Routes>
-            <Route path={MAIN_PAGE_LINK} exact element={<MainPage />} />
+            <Route path={HOME_PAGE_LINK} element={<MainPage />} />
+            <Route path={MAIN_PAGE_LINK} element={<MainPage />} />
             <Route path={SIGN_IN_LINK} element={<SignInPage />} />
             <Route path={SIGN_UP_LINK} element={<SignUpPage />} />
           </Routes>
